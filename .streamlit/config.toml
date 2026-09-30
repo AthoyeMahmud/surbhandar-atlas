@@ -5,6 +5,7 @@ backgroundColor = "#0b1522"
 secondaryBackgroundColor = "#132333"
 textColor = "#edf4fa"
 font = "sans-serif"
+baseFontSize = 18
 baseRadius = "large"
 
 [client]

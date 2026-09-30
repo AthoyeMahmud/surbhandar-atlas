@@ -6,10 +6,12 @@
     background: radial-gradient(ellipse at 92% 5%, #1b4e4c 0%, transparent 58%), #101e2d;
 }
 .st-key-hero h1 { max-width: 850px; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.045em; line-height: 1.08; }
+[data-testid="stCaptionContainer"] { opacity: 1; }
+[data-testid="stCaptionContainer"] p { font-size: 16px; line-height: 1.55; color: #c3d0dd; }
 .st-key-hero [data-testid="stCaptionContainer"] { color: #a6d9ce; letter-spacing: .1em; }
 .st-key-map_panel { background: #0c1929; border-radius: 1.2rem; }
 .atlas-map { width: 100%; height: min(60vh, 640px); min-height: 380px; overflow: hidden; border-radius: .7rem; }
-.legend { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; font: 12px sans-serif; color: #b9c8d8; padding: .5rem 0; }
+.legend { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; font: 15px sans-serif; color: #c3d0dd; padding: .5rem 0; }
 .legend span { display: inline-flex; align-items: center; gap: .4rem; }
 .legend i { width: 7px; height: 7px; border-radius: 50%; background: #638dff; }
 .legend .teal { background: #32cfb5; } .legend .orange { background: #ffa66b; }

@@ -45,10 +45,11 @@ def search_catalogue(search_index, query):
 
 
 def map_payload(rows, selected=None, matches=(), focused=False, revision=0):
-    """Only geometry and the current neighbourhood cross the browser boundary."""
+    """Full geometry/topology and current-selection labels cross the browser boundary."""
     neighbors = rows[selected]["neighbors"] if selected is not None else []
     labels = {str(i): {key: rows[i][key] for key in ("title", "artist")}
               for i in ([selected, *neighbors] if selected is not None else [])}
     return {"positions": [r["position"] for r in rows], "bands": [r["band"] for r in rows],
+            "adjacency": [r["neighbors"] for r in rows],
             "selected": selected, "neighbors": neighbors, "matches": list(matches),
             "focused": focused, "labels": labels, "revision": revision}

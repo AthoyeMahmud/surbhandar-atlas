@@ -1,25 +1,44 @@
-.st-key-hero {
-    padding: 1.8rem 2rem;
-    margin-bottom: 1.4rem;
-    border: 1px solid #29434d;
-    border-radius: 1.4rem;
-    background: radial-gradient(ellipse at 92% 5%, #1b4e4c 0%, transparent 58%), #101e2d;
-}
-.st-key-hero h1 { max-width: 850px; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.045em; line-height: 1.08; }
+[data-testid="stAppViewContainer"] { font-family: "Noto Sans", "Noto Sans Bengali", sans-serif; }
+[data-testid="stMainBlockContainer"] { padding-top: 1.25rem; padding-bottom: 2rem; max-width: 1800px; }
+.st-key-hero { margin-bottom: .25rem; }
+.atlas-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 1rem; padding: 0; margin: 0; line-height: 1.35; }
+.atlas-title [lang="bn"] { font: 600 clamp(28px, 3vw, 36px)/1.4 "Noto Sans Bengali", sans-serif; }
+.atlas-title [lang="en"] { font: 500 16px/1.5 "Noto Sans", sans-serif; color: #abbed5; }
+.st-key-hero p { color: #abbed5; margin-bottom: 0; }
 [data-testid="stCaptionContainer"] { opacity: 1; }
-[data-testid="stCaptionContainer"] p { font-size: 16px; line-height: 1.55; color: #c3d0dd; }
-.st-key-hero [data-testid="stCaptionContainer"] { color: #a6d9ce; letter-spacing: .1em; }
-.st-key-map_panel { background: #0c1929; border-radius: 1.2rem; }
-.atlas-map { width: 100%; height: min(60vh, 640px); min-height: 380px; overflow: hidden; border-radius: .7rem; }
-.legend { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; font: 15px sans-serif; color: #c3d0dd; padding: .5rem 0; }
+[data-testid="stCaptionContainer"] p { font-size: 13px; line-height: 1.6; color: #abbed5; }
+.st-key-search_bar { margin-bottom: .5rem; }
+.st-key-search_bar input { font-family: "Noto Sans Bengali", "Noto Sans", sans-serif; }
+.st-key-search_bar button, .st-key-welcome button, .st-key-pages button { min-height: 30px; padding: 4px 9px; }
+.st-key-search_bar button p, .st-key-welcome button p, .st-key-pages button p { font-size: 13px; line-height: 1.4; }
+.st-key-search_bar button [data-testid="stIconMaterial"] { font-size: 18px; }
+.atlas-map { width: 100%; min-height: 380px; overflow: hidden; border: 1px solid #354965; border-radius: 12px; }
+.atlas-map-previous { height: clamp(320px,calc(100dvh - 390px),720px); min-height: 320px; border-radius: 12px 12px 0 0; }
+.atlas-previous-status { margin-top: -1px; padding: 9px 14px; border: 1px solid #354965; border-radius: 0 0 12px 12px; color: #abbed5; font-size: 12px; }
+.st-key-graph_choice { margin-top: -10px; }
+.st-key-graph_choice button { min-height: 24px; padding: 3px 7px; border: 0; background: transparent; color: #abbed5; }
+.st-key-graph_choice button p { font-size: 12px; line-height: 1.5; }
+.st-key-graph_choice button:hover { background: #1e3554; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; font: 12px/1.6 "Noto Sans", sans-serif; color: #abbed5; padding: .15rem 0; }
 .legend span { display: inline-flex; align-items: center; gap: .4rem; }
 .legend i { width: 7px; height: 7px; border-radius: 50%; background: #638dff; }
 .legend .teal { background: #32cfb5; } .legend .orange { background: #ffa66b; }
-.legend .pink { background: #ff74b6; } .legend .gold { background: #ffda85; }
-.st-key-selected_song { border-color: #7d6c45; background: #1e252a; }
-.st-key-neighbors button, [class*="st-key-search_"] button { text-align: left; }
-.st-key-neighbors button p { text-align: left; }
-@media (max-width: 640px) {
-    .st-key-hero { padding: 1.2rem; }
-    .atlas-map { min-height: 320px; height: 45vh; }
+.legend .pink { background: #ff74b6; } .legend .gold { background: #ffda85; } .legend .sky { background: #72e6ff; }
+.st-key-welcome h3, .st-key-selected_song h3 { font: 600 22px/1.5 "Noto Sans Bengali", "Noto Sans", sans-serif; overflow-wrap: anywhere; }
+.st-key-neighbors, .st-key-results { border: 0; border-radius: 0; }
+.st-key-neighbors [data-testid="stButton"], .st-key-results [data-testid="stButton"] { margin: 0; }
+.st-key-neighbors button, .st-key-results button { text-align: left; justify-content: flex-start; border: 0; border-bottom: 1px solid #354965; border-radius: 0; padding: 7px 4px; min-height: 44px; background: transparent; }
+.st-key-neighbors button p, .st-key-results button p { text-align: left; font: 14px/1.55 "Noto Sans Bengali", "Noto Sans", sans-serif; }
+.st-key-neighbors button:hover, .st-key-results button:hover { background: #1e3554; }
+.st-key-pages button { min-width: 64px; font-size: 13px; }
+button:focus-visible, input:focus-visible { outline: 2px solid #a9caff; outline-offset: 3px; }
+@media (max-width: 760px) {
+    [data-testid="stMainBlockContainer"] { padding: 1rem; }
+    .atlas-map { min-height: 300px; }
+    .atlas-map-previous { height: 52vh; }
+    .st-key-hero { margin-bottom: 0; }
+    .st-key-search_bar { flex-wrap: wrap; }
+    .st-key-search_bar [data-testid="stTextInput"] { min-width: 100%; }
 }
+@media (pointer: coarse) { .st-key-search_bar button, .st-key-welcome button, .st-key-pages button, .st-key-graph_choice button { min-height: 36px; } }
+@media (prefers-reduced-motion: reduce) { .atlas-map * { scroll-behavior: auto; } }

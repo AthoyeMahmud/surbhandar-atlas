@@ -1,0 +1,136 @@
+{
+  "schema_version": "lossless-atlas-display-views/1",
+  "views": [
+    {
+      "key": "rhythm",
+      "file": "rhythm.json.gz",
+      "sha256": "2cda541a029c4de6610f54946615a27ba5411a25b82540abc0e30a3399438f09",
+      "representations": [
+        "rhythm"
+      ],
+      "point_count": 10817,
+      "elapsed_seconds": 32.34536909599956,
+      "neighbor_seconds": 1.0307539569994333,
+      "trustworthiness": {
+        "at_10": 0.9877988896859488,
+        "at_25": 0.9825696641534768
+      }
+    },
+    {
+      "key": "tonal",
+      "file": "tonal.json.gz",
+      "sha256": "80b3075dec783d79de8f566adb5ca8aa72f3fb3222832748e7f60d77190334d7",
+      "representations": [
+        "tonal"
+      ],
+      "point_count": 10817,
+      "elapsed_seconds": 11.294509792999634,
+      "neighbor_seconds": 0.9661449440000069,
+      "trustworthiness": {
+        "at_10": 0.9781267347065663,
+        "at_25": 0.9740660129743409
+      }
+    },
+    {
+      "key": "muq",
+      "file": "muq.json.gz",
+      "sha256": "d9f141cefa582547ea6be957396d981524634cf2f404d29edbed20b5b03d3148",
+      "representations": [
+        "muq"
+      ],
+      "point_count": 10817,
+      "elapsed_seconds": 11.276776733000588,
+      "neighbor_seconds": 0.9623146470003121,
+      "trustworthiness": {
+        "at_10": 0.9521910865914465,
+        "at_25": 0.9461837325517726
+      }
+    },
+    {
+      "key": "rhythm-tonal",
+      "file": "rhythm-tonal.json.gz",
+      "sha256": "ad10f0d1e9880fd4f0f77eb2741b3eafdaa7a7f95b8c26e56629f1ba481f49b5",
+      "representations": [
+        "rhythm",
+        "tonal"
+      ],
+      "point_count": 10817,
+      "elapsed_seconds": 11.349556140999994,
+      "neighbor_seconds": 1.0495422490002966,
+      "trustworthiness": {
+        "at_10": 0.970328716384466,
+        "at_25": 0.9663600125434358
+      }
+    },
+    {
+      "key": "mert-clap",
+      "file": "mert-clap.json.gz",
+      "sha256": "8e605677271b117511e6c49f6376aca2f89db84c69efc95432c85c0f9fd3681b",
+      "representations": [
+        "clap",
+        "mert"
+      ],
+      "point_count": 10819,
+      "elapsed_seconds": 11.61541708599998,
+      "neighbor_seconds": 1.0266326239998307,
+      "trustworthiness": {
+        "at_10": 0.9495852840240122,
+        "at_25": 0.9447513379220935
+      }
+    },
+    {
+      "key": "mert-muq",
+      "file": "mert-muq.json.gz",
+      "sha256": "009509b8f5cfe48a715059e9b1a061aad17183474f28fc636ea80a4ef4626e56",
+      "representations": [
+        "mert",
+        "muq"
+      ],
+      "point_count": 10817,
+      "elapsed_seconds": 32.324853278987575,
+      "neighbor_seconds": 1.101522077980917,
+      "trustworthiness": {
+        "at_10": 0.9477249955324523,
+        "at_25": 0.9413790631674759
+      },
+      "quality_check_seconds": 3.7145151459844783
+    },
+    {
+      "key": "clap-muq",
+      "file": "clap-muq.json.gz",
+      "sha256": "1a588cf65d25f598f53401ce7afa361b1d1138683aa4c809939d443b4c0afd83",
+      "representations": [
+        "clap",
+        "muq"
+      ],
+      "point_count": 10817,
+      "elapsed_seconds": 13.883619518019259,
+      "neighbor_seconds": 1.6728491630055942,
+      "trustworthiness": {
+        "at_10": 0.9458595673784193,
+        "at_25": 0.9403652078820277
+      },
+      "quality_check_seconds": 2.337758085981477
+    },
+    {
+      "key": "all-six",
+      "file": "all-six.json.gz",
+      "sha256": "d24bd9ad321648cadae82cde7211adb25044d7530193c1441352c25753b18522",
+      "representations": [
+        "clap",
+        "mert",
+        "muq",
+        "rhythm",
+        "scalar",
+        "tonal"
+      ],
+      "point_count": 10817,
+      "elapsed_seconds": 12.44578054900012,
+      "neighbor_seconds": 1.485331867000241,
+      "trustworthiness": {
+        "at_10": 0.9459355620143407,
+        "at_25": 0.939936444544882
+      }
+    }
+  ]
+}

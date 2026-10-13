@@ -20,20 +20,42 @@ def check():
     payload = map_payload(rows, sample)
     assert len(payload["positions"]) == 10819
     assert payload["neighbors"] == rows[sample]["neighbors"]
+    assert len(payload["adjacency"]) == 10819
+    assert sum(map(len, payload["adjacency"])) == 270475
+    assert payload["adjacency"] == [row["neighbors"] for row in rows]
     assert len(payload["labels"]) == 26
-    assert set(payload) == {"positions", "bands", "selected", "neighbors", "matches", "focused", "labels", "revision"}
+    assert set(payload) == {"positions", "bands", "adjacency", "selected", "neighbors", "matches", "focused", "labels", "revision"}
     assert all(set(label) == {"title", "artist"} for label in payload["labels"].values())
     empty = map_payload(rows)
     assert empty["neighbors"] == [] and empty["labels"] == {}
 
     app = AppTest.from_file(str(Path(__file__).parent / "app.py"), default_timeout=30).run()
     assert not app.exception, [e.message for e in app.exception]
+    app.radio(key="explorer_panel").set_value("Results").run()
+    assert not app.exception and sum((b.key or "").startswith("search_") for b in app.button) == 50
+    next(b for b in app.button if b.label == "Next").click().run()
+    assert not app.exception and app.session_state["results_page"] == 1
+    app.button(key="search_50").click().run()
+    assert not app.exception and app.session_state["selected"] == 50
     app.text_input[0].set_value("unlikely-no-match-9fe8ca79").run()
     assert not app.exception and any("No matches" in info.value for info in app.info)
     app.text_input[0].set_value(rows[sample]["title"]).run()
     assert not app.exception
+    app.radio(key="graph_view").set_value("Previous graph").run()
+    assert not app.exception and app.session_state["query"] == rows[sample]["title"]
+    assert app.session_state["selected"] == 50 and app.session_state["explorer_panel"] == "Results"
+    app.radio(key="graph_view").set_value("New graph").run()
+    assert not app.exception and app.session_state["query"] == rows[sample]["title"]
     app.button(key=f"search_{sample}").click().run()
     assert not app.exception and app.session_state["selected"] == sample
+    app.toggle[0].set_value(True).run()
+    app.radio(key="graph_view").set_value("Previous graph").run()
+    assert not app.exception and app.session_state["selected"] == sample
+    assert app.session_state["focus"] is True and app.session_state["query"] == ""
+    assert sum((b.key or "").startswith("neighbor_") for b in app.button) == 25
+    app.radio(key="graph_view").set_value("New graph").run()
+    assert not app.exception and app.session_state["selected"] == sample
+    assert app.session_state["focus"] is True
     neighbor = rows[sample]["neighbors"][0]
     assert sum((b.key or "").startswith("neighbor_") for b in app.button) == 25
     app.button(key=f"neighbor_{neighbor}").click().run()
@@ -45,7 +67,7 @@ def check():
     assert app.session_state["focus"] is False
     next(b for b in app.button if b.label == "Surprise me").click().run()
     assert not app.exception and 0 <= app.session_state["selected"] < len(rows)
-    print("PASS: full catalogue, exact neighbour order, search, payload boundary, and browsing controls")
+    print("PASS: full catalogue, exact neighbour order, pagination, payload boundary, graph fallback, and browsing controls")
 
 
 if __name__ == "__main__":

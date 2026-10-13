@@ -1,5 +1,7 @@
 # Surbhandar · Music Atlas
 
+**[Launch the Atlas](https://surbhandar-atlas.streamlit.app/)**
+
 Public preview of an ongoing project. Not currently released under an
 open-source license. Original project materials are © 2026 Athoye Mahmud,
 all rights reserved; see [LICENSE.md](LICENSE.md). Third-party components retain
